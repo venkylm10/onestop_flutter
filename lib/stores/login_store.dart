@@ -64,10 +64,8 @@ class LoginStore {
 
   Future<void> saveTokensToPrefs(SharedPreferences instance, Map data) async {
     await Future.wait([
-      instance.setString(
-          BackendHelper.accesstoken, data[BackendHelper.accesstoken]),
-      instance.setString(
-          BackendHelper.refreshtoken, data[BackendHelper.refreshtoken]),
+      instance.setString(BackendHelper.accesstoken, data[BackendHelper.accesstoken]),
+      instance.setString(BackendHelper.refreshtoken, data[BackendHelper.refreshtoken]),
     ]);
     Map userInfo = await APIRepository().getUserProfile();
     await Future.wait([
